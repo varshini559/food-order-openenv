@@ -1,0 +1,19 @@
+name: food-order-env
+description: AI environment for optimizing food ordering decisions
+
+endpoints:
+  reset: /reset
+  step: /step
+  state: /state
+  baseline: /baseline
+  grader: /grader
+
+tasks:
+  - id: easy
+    description: Order within budget
+
+  - id: medium
+    description: Match preferences
+
+  - id: hard
+    description: Optimize full order
