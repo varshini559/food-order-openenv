@@ -1,22 +1,12 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, Request
 
 app = FastAPI()
 
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 @app.get("/")
 def home():
-    return {"message": "ByteBites API Running"}
-
+    return {"message": "API running"}
 
 @app.post("/reset")
-async def reset():
-    return {"status": "reset successful"}
+async def reset(request: Request):
+    data = await request.json()
+    return {"status": "success"}
